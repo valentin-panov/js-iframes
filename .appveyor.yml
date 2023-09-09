@@ -14,7 +14,7 @@ install:
 build: true
 
 build_script:
-  - NODE_OPTIONS=--openssl-legacy-provider && npm run build
+  - npm run build
 
 deploy_script:
   - git config --global credential.helper store
