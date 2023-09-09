@@ -1,6 +1,6 @@
 image: Ubuntu1804
 
-stack: node 16
+stack: node 18
 
 branches:
   only:
@@ -9,7 +9,7 @@ branches:
 cache: [ node_modules ]
 
 install:
-  - npm install
+  - npm install --legacy-peer-deps
 
 build: false
 
