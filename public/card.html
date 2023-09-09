@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment system iframe</title>
+  </head>
+  <body>
+    <div>Payment system Alpha</div>
+    <label for="x-card_number">Card number: </label
+    ><input id="x-card_number" type="text" />
+    <input id="x-csrf" type="hidden" value="flag" />
+    <input id="x-pay" type="button" value="Pay" />
+    <!-- Add a container for where the Hosted Payment Pages iframe is injected -->
+    <div id="custom-html"></div>
+
+    <!-- Use JavaScript to inject the iframe into the container -->
+    <script type="text/javascript">
+      // Your custom options for injecting the iframe
+      var customOptions = {
+        url: "https://payments.worldpay.com",
+        type: "iframe",
+        inject: "onload",
+        target: "custom-html",
+        accessibility: true,
+        debug: false,
+      };
+      // Initialize the library and pass options
+      // var libraryObject = new WPCL.Library();
+      // libraryObject.setup(customOptions);
+    </script>
+  </body>
+</html>
