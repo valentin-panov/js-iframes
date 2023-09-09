@@ -7,6 +7,7 @@ export default class ShowIFrame {
     this.sendButton = document.querySelector("#btn_send");
     this.xss = document.querySelector("#btn_put_xss");
     this.iframe = document.querySelector("#test_iframe");
+    this.messageBox = document.querySelector("#message_box");
   }
 
   init() {
@@ -18,13 +19,20 @@ export default class ShowIFrame {
       "click",
       (event) => {
         event.preventDefault();
-        this.sendMessage(event.target);
+        this.sendMessage(this.message.value);
       },
       false,
     );
+
+    // listen to the messages from the iframe
+    window.onmessage = function (event) {
+      if (event.data.type === "iframeMsg") {
+        document.querySelector("#message_box").textContent = event.data.message;
+      }
+    };
   }
 
-  sendMessage(target) {
-    console.log(1);
+  sendMessage(message) {
+    this.iframe.contentWindow.postMessage(message, "*");
   }
 }

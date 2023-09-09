@@ -184,6 +184,12 @@ h3 {
   border-color: #dc3545;
 }
 
+.btn-teal {
+  color: #fff;
+  background-color: teal;
+  border-color: teal;
+}
+
 .form__input {
   display: inline-block;
   position: relative;
@@ -200,6 +206,16 @@ h3 {
   border: black 1px solid;
 
   resize: none;
+}
+
+.message_box_container {
+  border: none;
+  display: flex;
+  padding: 5px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
 }
 
 .iframe_el {
