@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "js iframes demo",
   "main": "app.js",
+  "homepage": "https://valentin-panov.github.io/js-iframes/",
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
