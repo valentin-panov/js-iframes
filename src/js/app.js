@@ -1,8 +1,10 @@
-import ShowIFrame from './engine/showIFrame';
+import ShowIFrame from "./engine/showIFrame";
 
-export default function app() {
+function app() {
   const showIFrame = new ShowIFrame();
   showIFrame.init();
 }
 
 app();
+
+export default app;

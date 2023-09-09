@@ -6,7 +6,7 @@
   "homepage": "https://valentin-panov.github.io/js-iframes/",
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
+    "build": "set NODE_OPTIONS='--openssl-legacy-provider' webpack --mode production",
     "show:dist": "live-server dist"
   },
   "repository": {
