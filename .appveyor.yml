@@ -9,9 +9,9 @@ branches:
 cache: [ node_modules ]
 
 install:
-  - npm install --legacy-peer-deps
+  - npm install
 
-build: false
+build: true
 
 build_script:
   - NODE_OPTIONS=--openssl-legacy-provider && npm run build
