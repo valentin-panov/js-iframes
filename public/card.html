@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment system iframe</title>
+    <link href="card.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="iframe_container">
+      <h1 class="iframe_title">Payment system iFrame</h1>
+      <label for="x-card_number">Card number: </label
+      ><input id="x-card_number" type="text" value="1234123412341234"/>
+      <input id="x-csrf" type="hidden" value="flag" />
+      <input id="x-pay" type="button" value="Pay" />
+      <input
+        id="btn_send_to_top"
+        type="button"
+        value="Send card number to top"
+      />
+      <!-- Add a container for where the incoming data is injected -->
+      <div id="custom-html"></div>
+    </div>
+
+    <!-- Use JavaScript to inject the iframe into the container -->
+    <script type="text/javascript">
+      // Your custom options
+      const customOptions = {
+        url: "https://payments.worldpay.com",
+        type: "iframe",
+        inject: "onload",
+        target: "custom-html",
+        accessibility: true,
+        debug: false,
+      };
+
+      // Listen to the messages from the top window
+      window.onmessage = function (event) {
+        document.querySelector(
+          "#custom-html",
+        ).textContent = `Incoming message received: ${event.data}`;
+      };
+
+      // send the message to the top window
+      document.querySelector("#btn_send_to_top").addEventListener(
+        "click",
+        (event) => {
+          event.preventDefault();
+          window.top.postMessage(
+            {
+              type: "iframeMsg",
+              message: document.querySelector("#x-card_number").value,
+            },
+            "*",
+          );
+        },
+        false,
+      );
+    </script>
+  </body>
+</html>
