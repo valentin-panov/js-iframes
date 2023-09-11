@@ -11,13 +11,15 @@ export default function drawWidget() {
         <button id="btn_put_xss" type="button" class="btn btn-red">Put XSS on a page</button>
       </div>
       <div class="message_box_container">
-      <div class="message_box_title">Message from iFrame:</div>
-      <div id="message_box" class="message_box"></div>
-</div>
-      <iframe id="test_iframe" src='/public/card.html' class="iframe_el"/>
+        <div class="message_box_title">Message from iFrame:</div>
+        <div id="message_box" class="message_box"></div>
+        <div id="xss_box"></div>
+      </div>
+      <iframe id="test_iframe" src='https://valentin-panov.github.io/js-iframes/public/card.html' sandbox="allow-scripts allow-forms" class="iframe_el"/>
     </div>
-
   </div>`;
 
   document.body.append(element);
 }
+
+// <iframe id="test_iframe" src='${process.env.BASE_URL}/public/card.html' sandbox="allow-scripts allow-forms" class="iframe_el"/>

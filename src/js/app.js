@@ -1,8 +1,8 @@
-import ShowIFrame from "./engine/showIFrame";
+import IFrameHandler from "./engine/iFrameHandler";
 
 function app() {
-  const showIFrame = new ShowIFrame();
-  showIFrame.init();
+  const iFrameHandler = new IFrameHandler();
+  iFrameHandler.init();
 }
 
 app();
