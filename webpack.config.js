@@ -1,12 +1,16 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
+
 
 // configure source and distribution folder paths
 const srcFolder = 'src';
-const distFolder = 'dist';
+const distFolder = 'build';
 
-module.exports = {
+module.exports = (_, argv) => {
+  return {
   devtool: 'source-map',
   // entry point for application
   entry: {
@@ -63,8 +67,14 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new CopyWebpackPlugin([
+      { from: 'public', to: 'public' }
+    ]),
+    new Dotenv({
+      path: `./.env.${argv.mode === "production" ? "prd" : "dev"}`,
+    })
   ],
   devServer: {
     port: 9000,
   },
-};
+}}

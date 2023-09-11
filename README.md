@@ -1,5 +1,13 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/hlsgmpmufkmh6agq?svg=true)](https://ci.appveyor.com/project/vapanov/js-iframes)
+# Iframe demo
 
-WEB Version https://valentin-panov.github.io/js-iframes/
+That is intentionally vulnerable for XSS web application, consisting iframe. Try to break into iframe from the top application.
+```html
+<iframe 
+        id="test_iframe" 
+        src='/public/card.html' 
+        class="iframe_el"/>
+```
 
-document.querySelector('iframe').querySelectorAll('input');
+Live version https://valentin-panov.github.io/js-iframes/
+
+If you push red button, application will inject simple xss payload to the page. Feel free to change it in the top input field.
